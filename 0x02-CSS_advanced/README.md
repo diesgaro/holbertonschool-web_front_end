@@ -11,7 +11,7 @@
 * CSS specificity calculator
 * Play with CSS selector
 
-Learning Objectives
+## Learning Objectives
 
 * Selectors, properties, and values
 * The difference between block and inline styling
