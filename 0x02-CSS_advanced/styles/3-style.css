@@ -1,6 +1,10 @@
 /*
     Same 2-style.css but declare root element and use variables in the others declarations
 */
+html {
+    scroll-behavior: smooth;
+}
+
 :root {
     --color-primary: #d73953; 
     --color-black: #090909;
@@ -8,10 +12,6 @@
     --color-light-grey: #f3f3f3;
     --color-dark-grey: #353535;
     --text-color: --color-black;
-}
-
-html {
-    scroll-behavior: smooth;
 }
 
 body {
