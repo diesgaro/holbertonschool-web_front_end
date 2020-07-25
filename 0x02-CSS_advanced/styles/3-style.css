@@ -1,6 +1,5 @@
 /*
-    Same 2-style.css but declare root element and use
-    variables in the others declarations
+    Same 2-style.css but declare root element and use variables in the others declarations
 */
 :root {
     --color-primary: #d73953; 
