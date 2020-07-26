@@ -164,7 +164,7 @@ a:active {
 
 .row {
     margin: 0;
-    padding: unset;
+    padding: 0;
     list-style: none;
 }
 
@@ -181,7 +181,7 @@ a:active {
 }
 
 .footer-copyright {
-    margin: unset;
+    margin: 0;
     font-size: var(--font-size-small);
     color: var(--text-color);
 }
