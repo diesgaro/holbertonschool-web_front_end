@@ -191,7 +191,7 @@ ul.row {
 }
 
 .row::after {
-    content: none;
+    content: normal;
     display: table;
     clear: both;
 }
