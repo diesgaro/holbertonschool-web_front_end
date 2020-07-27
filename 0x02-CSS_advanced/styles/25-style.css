@@ -2,7 +2,7 @@
 /*# sourceMappingURL=normalize.min.css.map */
 
 /*
-    Fix issues for dark theme
+    Add border to the button
 */
 :root {
     --color-primary: #d73953;
@@ -103,7 +103,7 @@ a:active {
 .button:hover {
     color: var(--button-hover-color);
     text-decoration: var(--button-hover-text-decoration);
-    background-color: var(--button-hover-background);
+    background: var(--button-hover-background);
 }
 
 .visually-hidden {
@@ -224,7 +224,7 @@ ul.row {
 [data-section-theme="dark"] {
     --text-color: var(--color-white);
     --section-title-color: var(--color-white);
-    background: var(--color-black);
+    background-color: var(--color-black);
     --button-color: var(--color-white);
 }
 
