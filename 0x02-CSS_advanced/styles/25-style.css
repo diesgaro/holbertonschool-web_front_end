@@ -44,7 +44,7 @@
     --button-display: inline-block;
     --button-padding: 1.5rem 3rem;
     --button-border: 0.2rem solid var(--color-primary);
-    --button-color: color-black;
+    --button-color: var(--color-black);
     --button-text-decoration: none;
     --button-font-size: var(--font-size-large);
     --button-hover-color: var(--color-white);
@@ -103,7 +103,7 @@ a:active {
 .button:hover {
     color: var(--button-hover-color);
     text-decoration: var(--button-hover-text-decoration);
-    background: var(--button-hover-background);
+    background-color: var(--button-hover-background);
 }
 
 .visually-hidden {
