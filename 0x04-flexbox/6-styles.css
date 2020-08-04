@@ -205,6 +205,9 @@ ul.row {
   padding: 0;
   list-style: none;
   text-align: center;
+}
+
+.nav .nav-item + .nav-item {
   margin: var(--nav-item-margin);
 }
 
