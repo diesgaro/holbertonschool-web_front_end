@@ -4,9 +4,10 @@
   "description": "0x0E. Cookies & local storage",
   "main": "index.js",
   "dependencies": {
+    "js-cookie": "^2.2.1",
     "webpack": "^4.44.2",
-    "webpack-dev-server": "^3.11.0",
-    "webpack-cli": "^3.3.12"
+    "webpack-cli": "^3.3.12",
+    "webpack-dev-server": "^3.11.0"
   },
   "devDependencies": {},
   "scripts": {

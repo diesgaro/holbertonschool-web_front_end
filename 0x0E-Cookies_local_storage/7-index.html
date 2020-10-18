@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@rc/dist/js.cookie.min.js"></script>
+    <script>
+        let availableItems = ['Shampoo', 'Soap', 'Sponge', 'Water'];
+
+        function getCartFromStorage(){
+            if (!sessionStorage.length)
+                return {};
+            else
+                return JSON.parse(sessionStorage.cart);
+        }
+
+        function addItemToCart(item){
+            let data = getCartFromStorage();
+            //console.log(data[item]);
+            data[item] = data[item] ? data[item] + 1 : 1;
+            sessionStorage.setItem('cart',JSON.stringify(data));
+            displayCart();
+        }
+
+        function removeItemfromCart(item){
+            let data = getCartFromStorage();
+            delete data[item];
+            sessionStorage.setItem('cart',JSON.stringify(data));
+            displayCart();
+        }
+
+        function clearCart(){
+            //console.log("clearCart");
+            sessionStorage.removeItem("cart");
+            displayCart();
+        }
+
+        function createStore(){
+            let h2 = document.createElement("h2");
+            let ul = document.createElement("ul");
+
+            h2.textContent = "Available products:";
+            document.body.appendChild(h2);
+
+            availableItems.forEach(element => {
+                let li = document.createElement("li");
+                li.textContent = element;
+                li.addEventListener('click', () => {
+                    addItemToCart(element);
+                });
+                ul.appendChild(li);
+            });
+
+            document.body.appendChild(ul);
+        }
+
+        function displayCart(){
+            if (!document.getElementById('heading-my-cart')) {
+                let h2 = document.createElement('h2');
+                h2.id = 'heading-my-cart';
+                h2.textContent = 'Your cart:';
+                document.body.appendChild(h2);
+            }
+
+            if (!document.getElementById('my-cart')) {
+                let myCart = document.createElement('div');
+                myCart.id = 'my-cart';
+                document.body.appendChild(myCart);
+            } else {
+                document.getElementById('my-cart').innerHTML = '';
+            }
+
+            updateCart();
+        }
+
+        function updateCart(){
+            let div = document.getElementById("my-cart");
+            let ul = document.createElement("ul");
+
+            if (!sessionStorage.length) {
+                let li = document.createElement("li");
+                li.textContent = 'Your cart is empty';
+                ul.appendChild(li);
+            } else {
+                let data = getCartFromStorage();
+                let firstLi = document.createElement("li");
+                firstLi.textContent = 'Clear my cart';
+                firstLi.addEventListener('click', () => {
+                    clearCart();
+                });
+                ul.appendChild(firstLi);
+
+                const entries = Object.entries(data);
+
+                for (const [key, value] of entries){
+                    let li = document.createElement("li");
+                    let span = document.createElement("span");
+
+                    li.textContent = `${key} x ${value} `;
+                    
+                    span.textContent = "(remove)";
+                    span.addEventListener("click", () => {
+                        removeItemfromCart(key);
+                    });
+
+                    li.appendChild(span);
+
+                    ul.appendChild(li);
+                };
+            }
+
+            div.appendChild(ul);
+        }
+
+        document.addEventListener("DOMContentLoaded", () => {
+            if (typeof(Storage) !== "undefined") {
+                createStore();
+                displayCart();
+            } else {
+                alert('Sorry, your browser does not support Web storage. Try again with a better one');
+            }
+        });
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
